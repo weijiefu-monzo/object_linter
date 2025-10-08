@@ -2,6 +2,7 @@
   "dependencies": {
     "@create-figma-plugin/ui": "^4.0.3",
     "@create-figma-plugin/utilities": "^4.0.3",
+    "@object-ui/components": "file:../object-ui-package",
     "clsx": "^2.1.1",
     "preact": ">=10",
     "prismjs": "1.29.0",

@@ -1,13 +1,9 @@
 import { h } from 'preact';
-import { IconButton } from '../../object-ui/components/IconButton';
+import { IconButton, ListItem, Page, Group, Button } from '@object-ui/components';
 import { AiOutlineArrowLeft } from 'react-icons/ai';
 import { useState } from 'preact/hooks';
 import { Results } from '../../types';
-import { ListItem } from '../../object-ui/components/ListItem';
-import { Page } from '../../object-ui/components/Page';
 import styles from './Results.module.css';
-import { Group } from '../../object-ui/components/Group';
-import { Button } from '../../object-ui/components/Button';
 export const ResultsPage = ({
   setCurrentPage,
   results,

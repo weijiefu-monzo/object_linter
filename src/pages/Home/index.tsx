@@ -2,12 +2,9 @@ import { h } from 'preact';
 
 import { AiFillBulb, AiFillSetting, AiFillPlayCircle } from 'react-icons/ai';
 
-import { Page } from '../../object-ui/components/Page';
+import { Page, IconButton, Group, Button } from '@object-ui/components';
 import CoverImage from '../../assets/cover.png';
 import styles from './Home.module.css';
-import { IconButton } from '../../object-ui/components/IconButton';
-import { Group } from '../../object-ui/components/Group';
-import { Button } from '../../object-ui/components/Button';
 import { useEffect, useState } from 'preact/hooks';
 
 import { SettingsModal } from './SettingsModal';

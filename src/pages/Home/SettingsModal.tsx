@@ -1,9 +1,6 @@
 import { h } from 'preact';
 import { useEffect, useState } from 'preact/hooks';
-import { Modal } from '../../object-ui/components/Modal';
-import { Button } from '../../object-ui/components/Button';
-import { Switch } from '../../object-ui/components/Switch';
-import { ListItem } from '../../object-ui/components/ListItem';
+import { Modal, Button, Switch, ListItem } from '@object-ui/components';
 import styles from './Home.module.css';
 import { emit } from '@create-figma-plugin/utilities';
 import { Settings } from '../../types';
