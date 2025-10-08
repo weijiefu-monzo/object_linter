@@ -1,0 +1,68 @@
+/* Semantic tokens */
+:root {
+  --color-success-main: var(--green-400);
+  --color-warning-main: var(--orange-400);
+  --color-error-main: var(--red-400);
+  --color-neutral-main: var(--grey-400);
+  --color-text-primary: var(--grey-1200);
+  --color-text-secondary: var(--grey-800);
+  --color-text-contrast: var(--grey-300);
+  --color-action-primary-bg: var(--grey-1300);
+  --color-action-secondary-bg: var(--grey-100);
+  --color-background-canvas: var(--grey-100);
+  --gradient-dent-light: linear-gradient(
+    135deg,
+    var(--grey-200) 20%,
+    var(--grey-50) 80%
+  );
+  --gradient-dent-light-hover: linear-gradient(
+    135deg,
+    var(--grey-300) 20%,
+    var(--grey-100) 80%
+  );
+  --gradient-dent-dark: linear-gradient(
+    135deg,
+    var(--grey-1500) 20%,
+    var(--grey-800) 80%
+  );
+  --elevation-200: 
+  /* drop shadows */
+    0.5px 1px 2px #00000059, 4px 4px 4px 1px #0000001a,
+    /* inner shadows */ inset 1px 1px 1px #ffffffa0,
+    inset -1px -1px 1px #0000001a;
+
+  --elevation-100: 
+  /* drop shadows */
+    0px 0.5px 1px 0.5px #00000059, 1px 1px 2px #0000001a,
+    /* inner shadows */ inset 0.5px 0.5px 0.5px #ffffffa0,
+    inset -0.5px -0.5px 0.5px #0000001a;
+
+  --elevation--100:
+   /* drop shadows */
+    1px 2px 0px rgba(255, 255, 255, 0.25),
+    /* inner shadows */ inset -1px 1px 1.5px #0000001a;
+
+  --font-letter-spacing-tight: -2.5%;
+
+  --glow-success: 0 0 4px rgba(84, 196, 86, 0.25);
+  --glow-warning: 0 0 4px rgba(237, 135, 0, 0.251);
+  --glow-error: 0 0 4px rgba(255, 63, 0, 0.251);
+  --glow-neutral: 0 0 4px rgba(255, 255, 255, 0.25);
+}
+
+/* @media (prefers-color-scheme: dark) {
+:root {
+--color-success-main: var(--green-400);
+--color-warning-main: var(--orange-400);
+--color-error-main: var(--red-400);
+--color-neutral-main: var(--grey-1100);
+--color-text-primary: var(--grey-300);
+--color-text-secondary: var(--grey-700);
+--color-text-contrast: var(--grey-1200);
+--color-action-primary-bg: var(--grey-100); 
+--color-action-secondary-bg: var(--grey-1300);
+--color-background-canvas: var(--grey-1400);
+--gradient-dent-dark: linear-gradient(135deg, var(--grey-200) 20%, var(--grey-50) 80%);
+--gradient-dent-light: linear-gradient(135deg, var(--grey-1500) 20%, var(--grey-800) 80%);
+}
+} */

@@ -1,0 +1,15 @@
+.group {
+  display: flex;
+  flex-direction: row;
+  gap: 2px;
+  background-color: var(--grey-200);
+  border-radius: 10px;
+  padding: 2px;
+  box-shadow: var(--elevation--100);
+}
+.wrap {
+  flex-wrap: wrap;
+}
+.fullWidth {
+  width: 100%;
+}

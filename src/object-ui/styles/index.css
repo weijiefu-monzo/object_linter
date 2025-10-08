@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import './primitive.css';
+@import './semantic.css';
+
+body {
+  font-family: 'Noto Sans', sans-serif;
+}
+h1 {
+  font-family: 'Pixelify Sans', cursive;
+  font-size: 28px;
+  line-height: 32px;
+  font-weight: bold;
+  color: var(--color-text-primary);
+  margin: 0;
+  box-shadow: var(--glow-neutral);
+}
+h2 {
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--color-text-primary);
+}
+
+h3 {
+  font-size: 12px;
+  color: var(--color-neutral-main);
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+p {
+  font-size: 10px;
+  line-height: 12px;
+  color: var(--color-text-secondary);
+  margin: 0;
+}

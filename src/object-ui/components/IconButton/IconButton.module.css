@@ -1,0 +1,87 @@
+.iconButton {
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 8px;
+  font-weight: bold;
+  box-shadow: var(--elevation-200);
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.iconButton:enabled:active {
+  box-shadow: var(--elevation-100);
+}
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  aspect-ratio: 1/1;
+  border-radius: 100%;
+  cursor: unset;
+}
+.primary .icon {
+  background-image: var(--gradient-dent-dark);
+}
+.secondary .icon {
+  background-image: var(--gradient-dent-light);
+}
+.small {
+  width: 24px;
+  height: 24px;
+  font-size: 12px;
+}
+.medium {
+  width: 32px;
+  height: 32px;
+  font-size: 16px;
+}
+.large {
+  width: 48px;
+  height: 48px;
+  font-size: 24px;
+}
+.fullWidth {
+  width: 100%;
+}
+.primary {
+  background-color: var(--color-action-primary-bg);
+  color: var(--color-text-contrast);
+}
+.secondary {
+  background-color: var(--color-action-secondary-bg);
+  color: var(--color-text-primary);
+}
+.success {
+  color: var(--color-success-main);
+}
+.warning {
+  color: var(--color-warning-main);
+}
+.error {
+  color: var(--color-error-main);
+}
+.neutral {
+  color: var(--color-neutral-main);
+  cursor: not-allowed;
+}
+
+.success .icon * {
+  filter: drop-shadow(var(--glow-success));
+}
+.warning .icon * {
+  filter: drop-shadow(var(--glow-warning));
+}
+.error .icon * {
+  filter: drop-shadow(var(--glow-error));
+}
+.neutral .icon {
+  filter: drop-shadow(var(--glow-neutral));
+}
+
+.disabled {
+  color: var(--color-neutral-main);
+  cursor: not-allowed;
+}

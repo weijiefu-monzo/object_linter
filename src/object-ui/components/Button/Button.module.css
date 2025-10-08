@@ -1,0 +1,139 @@
+.button {
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 8px;
+  font-weight: medium;
+  box-shadow: var(--elevation-200);
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: var(--font-letter-spacing-tight);
+  position: relative;
+}
+.fullWidth {
+  width: 100%;
+}
+.button:enabled:active {
+  box-shadow: var(--elevation-100);
+}
+.secondary {
+  background-color: var(--color-action-secondary-bg);
+  color: var(--color-text-primary);
+}
+.primary {
+  background-color: var(--color-action-primary-bg);
+  color: var(--color-text-contrast);
+}
+
+.small .label {
+  font-size: 12px;
+  line-height: 16px;
+}
+.medium .label {
+  font-size: 12px;
+  line-height: 24px;
+}
+.large .label {
+  font-size: 12px;
+  line-height: 40px;
+}
+
+.small .startIcon,
+.small .endIcon {
+  font-size: 12px;
+  line-height: 16px;
+}
+.medium .startIcon,
+.medium .endIcon {
+  font-size: 16px;
+  line-height: 24px;
+}
+.large .startIcon,
+.large .endIcon {
+  font-size: 24px;
+  line-height: 40px;
+}
+.label {
+  padding: 0 8px;
+  cursor: unset;
+}
+.small .startIcon {
+  width: 16px;
+  height: 16px;
+}
+.medium .startIcon {
+  width: 24px;
+  height: 24px;
+}
+.large .startIcon {
+  width: 40px;
+  height: 40px;
+}
+.small .endIcon {
+  width: 16px;
+  height: 16px;
+}
+.medium .endIcon {
+  width: 24px;
+  height: 24px;
+}
+.large .endIcon {
+  width: 40px;
+  height: 40px;
+}
+.startIcon,
+.endIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  cursor: unset;
+}
+.primary .startIcon,
+.primary .endIcon {
+  background-image: var(--gradient-dent-dark);
+}
+.secondary .startIcon,
+.secondary .endIcon {
+  background-image: var(--gradient-dent-light);
+}
+
+.success {
+  color: var(--color-success-main);
+}
+.warning {
+  color: var(--color-warning-main);
+}
+.error {
+  color: var(--color-error-main);
+}
+.neutral {
+  color: var(--color-neutral-main);
+}
+
+.success .label,
+.success .startIcon *,
+.success .endIcon * {
+  filter: drop-shadow(var(--glow-success));
+}
+.warning .label,
+.warning .startIcon *,
+.warning .endIcon * {
+  filter: drop-shadow(var(--glow-warning));
+}
+.error .label,
+.error .startIcon *,
+.error .endIcon * {
+  filter: drop-shadow(var(--glow-error));
+}
+.neutral .label,
+.neutral .startIcon *,
+.neutral .endIcon * {
+  filter: drop-shadow(var(--glow-neutral));
+}
+
+.disabled {
+  color: var(--color-neutral-main);
+  cursor: not-allowed;
+}
