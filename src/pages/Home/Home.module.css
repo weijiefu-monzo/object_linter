@@ -96,3 +96,10 @@ border-radius: 48px;
     filter: hue-rotate(360deg);
   }
 }
+
+.info{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px;
+}

@@ -9,6 +9,7 @@ import styles from './Home.module.css';
 import { useState } from 'preact/hooks';
 
 import { SettingsModal } from './SettingsModal';
+import { InfoModal } from './InfoModal';
 import { Settings } from '../../types';
 import { emit } from '@create-figma-plugin/utilities';
 
@@ -20,6 +21,7 @@ export const Home = ({
   setCurrentPage: (page: string) => void;
 }) => {
   const [isSettingsOpen, setIsSettingsOpen] = useState<boolean>(false);
+  const [isInfoOpen, setIsInfoOpen] = useState<boolean>(false);
   const handleStart = () => {
     emit('START');
   };
@@ -48,7 +50,9 @@ export const Home = ({
         </div>
 
         <Group fullWidth>
-          <IconButton size="large" onClick={() => {}}>
+          <IconButton size="large" onClick={() => {
+            setIsInfoOpen(true);
+          }}>
             <AiFillBulb />
           </IconButton>
           <IconButton
@@ -74,6 +78,10 @@ export const Home = ({
           isOpen={isSettingsOpen}
           onClose={() => setIsSettingsOpen(false)}
           savedSettings={settings}
+        />
+        <InfoModal
+          isOpen={isInfoOpen}
+          onClose={() => setIsInfoOpen(false)}
         />
       </div>
     </Page>
