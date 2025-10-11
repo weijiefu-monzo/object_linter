@@ -3,4 +3,20 @@
   flex-direction: row;
   align-items: center;
   gap: 16px;
+  justify-content: space-between;
+}
+.list{
+  height: 100%;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+}
+
+.category{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }

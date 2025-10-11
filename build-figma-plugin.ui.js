@@ -3,6 +3,10 @@ module.exports = function (buildOptions) {
     ...buildOptions,
     define: {
       global: 'window'
+    },
+    alias: {
+      'react': 'preact/compat',
+      'react-dom': 'preact/compat'
     }
   }
 }

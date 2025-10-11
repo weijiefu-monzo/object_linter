@@ -25,6 +25,10 @@ const initialSettings: Settings = {
 export default async function () {
   on('SAVE_SETTINGS', handleSaveSettings);
   on('START', handleStart);
+
+  on('TARGET_CLICK', handleTargetClick);
+
+
   if ((await figma.clientStorage.getAsync('settings')) === undefined) {
     await figma.clientStorage.setAsync('settings', initialSettings);
   }
@@ -115,8 +119,8 @@ const processSingleNode = (
 ) => {
   //Check should avoid boolean operation
   if (
-    settings.avoidBooleanOperation &&
-    CRITERIA_NODE_TYPE['Should_Avoid'].includes(node.type)
+    settings.avoidBooleanOperation
+    && node.type === 'BOOLEAN_OPERATION'
   ) {
     results.avoidBooleanOperation.push({
       type: 'avoidBooleanOperation',
@@ -127,7 +131,7 @@ const processSingleNode = (
   //Check should avoid group
   if (
     settings.avoidGroup &&
-    CRITERIA_NODE_TYPE['Should_Avoid'].includes(node.type)
+    node.type === 'GROUP'
   ) {
     results.avoidGroup.push({
       type: 'avoidGroup',
@@ -159,6 +163,7 @@ const processSingleNode = (
         message: 'Frame must use autolayout',
       });
     } else {
+      //if using autolayout, check if itemSpacing is assigned
       if (
         settings.gap &&
         'itemSpacing' in node &&
@@ -169,9 +174,80 @@ const processSingleNode = (
         results.gap.push({
           type: 'gap',
           node: { id: node.id, name: node.name, type: node.type },
-          message: 'Frame should use consistent gap values',
+          message: 'ItemSpacing variable is not assigned',
+        });
+      }
+
+      ['paddingLeft', 'paddingRight', 'paddingTop', 'paddingBottom'].forEach(
+        (padding) => {
+          const paddingKey = padding as keyof typeof node;
+          const boundVarKey = padding as keyof NonNullable<typeof node.boundVariables>;
+          if (settings.padding && padding in node && node[paddingKey] !== 0 && node.boundVariables?.[boundVarKey] === undefined) {
+            results.padding.push({
+              type: 'padding',
+              node: { id: node.id, name: node.name, type: node.type },
+              message: `${padding} variable is not assigned`,
+            });
+          }
+        }
+      );  
+    }
+  }
+
+  //Check must use variable on fill
+  if (settings.fill && 'fills' in node && (node.fills as readonly Paint[])?.length > 0 && (node.boundVariables?.['fills'] === undefined || (node.boundVariables as any)?.fills?.length < (node.fills as readonly Paint[]).length) && isSolidFill(node as Node & { fills: readonly Paint[] })) {
+    results.fill.push({
+      type: 'fill',
+      node: { id: node.id, name: node.name, type: node.type },
+      message: 'Fill variable is not assigned',
+    });
+  }
+
+
+  //Check must use variable on stroke
+  if (settings.stroke && 'strokes' in node && (node.strokes as readonly Paint[])?.length > 0 && (node.boundVariables?.['strokes'] === undefined || (node.boundVariables as any)?.strokes?.length < (node.strokes as readonly Paint[]).length) && isSolidStroke(node as Node & { strokes: readonly Paint[] })) {
+    results.stroke.push({
+      type: 'stroke',
+      node: { id: node.id, name: node.name, type: node.type },
+      message: 'Stroke variable is not assigned',
+    });
+  }
+
+  //Check must use variable on corner radius
+  ['bottomLeftRadius', 'bottomRightRadius', 'topLeftRadius', 'topRightRadius'].forEach(
+    (cornerRadius) => {
+      const cornerRadiusKey = cornerRadius as keyof typeof node;
+      const boundVarKey = cornerRadius as keyof NonNullable<typeof node.boundVariables>;
+      if (settings.cornerRadius && cornerRadius in node && node[cornerRadiusKey] !== 0 && node.boundVariables?.[boundVarKey] === undefined) {
+        results.cornerRadius.push({
+          type: 'cornerRadius', 
+          node: { id: node.id, name: node.name, type: node.type },
+          message: `${cornerRadius} variable is not assigned`,
         });
       }
     }
-  }
+  );
 };
+
+const handleTargetClick = (id: string) => {
+  figma.currentPage.selection = [figma.getNodeById(id) as SceneNode];
+  figma.viewport.scrollAndZoomIntoView([figma.getNodeById(id) as SceneNode]);
+
+}
+
+//Utils
+const isSolidFill = (node: Node & { fills: readonly Paint[] }) => {
+  let bool = true
+  node.fills.forEach((fill: Paint) => {
+    bool = bool && fill.type === 'SOLID'
+  })
+  return bool
+}
+
+const isSolidStroke = (node: Node & { strokes: readonly Paint[] }) => {
+  let bool = true
+  node.strokes.forEach((stroke: Paint) => {
+    bool = bool && stroke.type === 'SOLID'
+  })
+  return bool
+}

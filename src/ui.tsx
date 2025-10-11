@@ -1,3 +1,4 @@
+import './react-bridge'; // Must be first to set up React bridge
 import { render } from '@create-figma-plugin/ui';
 import { emit, on } from '@create-figma-plugin/utilities';
 import { h, RefObject } from 'preact';
@@ -9,6 +10,7 @@ import { Settings } from './types';
 import { useEffect, useState } from 'preact/hooks';
 import { Results } from './types';
 import { ResultsPage } from './pages/Results';
+
 
 function Plugin(data: { results: object; settings: Settings }) {
   const [currentPage, setCurrentPage] = useState<string>('home');
@@ -43,3 +45,4 @@ function Plugin(data: { results: object; settings: Settings }) {
 }
 
 export default render(Plugin);
+

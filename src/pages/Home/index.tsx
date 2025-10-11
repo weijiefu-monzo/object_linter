@@ -3,13 +3,14 @@ import { h } from 'preact';
 import { AiFillBulb, AiFillSetting, AiFillPlayCircle } from 'react-icons/ai';
 
 import { Page, IconButton, Group, Button } from '@object-ui/components';
-import CoverImage from '../../assets/cover.png';
+import { LetterGlitch } from '../../components/FigmaLetterGlitch';
+import CoverImage from '../../assets/cover.svg';
 import styles from './Home.module.css';
-import { useEffect, useState } from 'preact/hooks';
+import { useState } from 'preact/hooks';
 
 import { SettingsModal } from './SettingsModal';
 import { Settings } from '../../types';
-import { emit, on } from '@create-figma-plugin/utilities';
+import { emit } from '@create-figma-plugin/utilities';
 
 export const Home = ({
   settings,
@@ -27,12 +28,22 @@ export const Home = ({
     <Page>
       <div className={styles.home}>
         <div className={styles.header}>
+          <div className={styles.coverContainer}>
           <div className={styles.cover}>
+            <LetterGlitch 
+              glitchColors={['#323232', '#565656', '#707070']}
+              glitchSpeed={2}
+              centerVignette={true}
+              outerVignette={false}
+              smooth={true}
+              characters="ABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$&*()-_+=/[]{};:<>.,0123456789"
+            />
             <img src={CoverImage} alt="Object Linter" />
+          </div>
           </div>
           <div className={styles.content}>
             <h1>OBJECT LINTER</h1>
-            <p>Select a layer to get started</p>
+            <p>Select one or more layers to get started</p>
           </div>
         </div>
 

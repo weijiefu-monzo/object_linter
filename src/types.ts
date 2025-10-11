@@ -33,4 +33,5 @@ export type Node =
   | TextNode
   | GroupNode
   | VectorNode
-  | ComponentSetNode;
+  | ComponentSetNode
+  | BooleanOperationNode;
