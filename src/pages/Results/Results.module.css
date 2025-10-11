@@ -10,13 +10,30 @@
   overflow-y: scroll;
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  margin: 0;
-  padding: 0;
+  gap: 8px;
+  margin: -16px;
+  padding: 16px;
 }
 
 .category{
   display: flex;
   flex-direction: column;
   gap: 8px;
+}
+
+.successContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 16px;
+  text-align: center;
+  height: 100%;
+  gap: 8px;
+}
+
+.successImage {
+  width: 120px;
+  height: auto;
+  margin-bottom: 16px;
 }

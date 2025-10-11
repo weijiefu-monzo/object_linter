@@ -15,11 +15,13 @@
     "@figma/plugin-typings": "1.100.2",
     "@types/prismjs": "1.26.3",
     "prettier": "^3.6.2",
-    "typescript": ">=4"
+    "typescript": ">=4",
+    "vite-plugin-svgr": "^4.5.0"
   },
   "scripts": {
     "build": "build-figma-plugin --typecheck --minify",
     "watch": "build-figma-plugin --typecheck --watch",
+    "build:icons": "node scripts/build-icons.js",
     "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx,css,json}\"",
     "format:check": "prettier --check \"src/**/*.{ts,tsx,js,jsx,css,json}\""
   },
