@@ -31,6 +31,7 @@ export const SettingsModal = ({
         fill: !!settings.fill,
         stroke: !!settings.stroke,
         cornerRadius: !!settings.cornerRadius,
+        overrides: !!settings.overrides,
       };
 
       // Send the settings directly without serialization
@@ -181,6 +182,21 @@ export const SettingsModal = ({
                   setSettingsState({
                     ...settings,
                     cornerRadius: !settings.cornerRadius,
+                  });
+                }}
+              />
+            }
+          />
+          <ListItem
+            label="Instance overrides"
+            description="For building primitive components"
+            action={
+              <Switch
+                checked={settings.overrides}
+                onChange={() => {
+                  setSettingsState({
+                    ...settings,
+                    overrides: !settings.overrides,
                   });
                 }}
               />

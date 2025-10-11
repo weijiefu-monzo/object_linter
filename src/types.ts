@@ -13,6 +13,7 @@ export type Results = {
   fill: Error[];
   stroke: Error[];
   cornerRadius: Error[];
+  overrides: Error[];
 };
 export type Settings = {
   avoidBooleanOperation: boolean;
@@ -24,6 +25,7 @@ export type Settings = {
   fill: boolean;
   stroke: boolean;
   cornerRadius: boolean;
+  overrides: boolean;
 };
 
 export type Node =

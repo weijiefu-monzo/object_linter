@@ -48,7 +48,7 @@ export const ResultsPage = ({
 
   const getFilteredCategory = (category: string) => {
     if (currentTab === 'all') return true;
-    if (currentTab === 'avoid') return ['avoidBooleanOperation', 'avoidGroup'].includes(category);
+    if (currentTab === 'avoid') return ['avoidBooleanOperation', 'avoidGroup', 'overrides'].includes(category);
     if (currentTab === 'name') return ['mustBeNamed'].includes(category);
     if (currentTab === 'spacing') return ['mustUseAutolayout', 'padding', 'gap', 'cornerRadius'].includes(category);
     if (currentTab === 'color') return ['fill', 'stroke'].includes(category);

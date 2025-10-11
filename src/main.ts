@@ -20,6 +20,7 @@ const initialSettings: Settings = {
   fill: true,
   stroke: true,
   cornerRadius: true,
+  overrides: false,
 };
 
 export default async function () {
@@ -56,6 +57,7 @@ const handleSaveSettings = async (settings: Settings) => {
       'fill',
       'stroke',
       'cornerRadius',
+      'overrides',
     ];
 
     const receivedKeys = Object.keys(settings);
@@ -89,6 +91,7 @@ const handleStart = async () => {
     fill: [],
     stroke: [],
     cornerRadius: [],
+    overrides: [],
   };
 
   const settings = await figma.clientStorage.getAsync('settings');
@@ -227,6 +230,15 @@ const processSingleNode = (
       }
     }
   );
+
+  //Check instance overrides
+  if (settings.overrides &&  node.type ==="INSTANCE" && node.overrides.length > 0) {
+    results.overrides.push({
+      type: 'overrides',
+      node: { id: node.id, name: node.name, type: node.type },
+      message: 'This instance has overrides, be careful when building components',
+    });
+  }
 };
 
 const handleTargetClick = (id: string) => {
