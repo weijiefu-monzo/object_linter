@@ -11,7 +11,6 @@ import { useEffect, useState } from 'preact/hooks';
 import { Results } from './types';
 import { ResultsPage } from './pages/Results';
 
-
 function Plugin(data: { results: object; settings: Settings }) {
   const [currentPage, setCurrentPage] = useState<string>('home');
   const [results, setResults] = useState<Results>({
@@ -24,6 +23,7 @@ function Plugin(data: { results: object; settings: Settings }) {
     fill: [],
     stroke: [],
     cornerRadius: [],
+    overrides: [],
   });
   useEffect(() => {
     on('SHOW_RESULTS', (results: Results) => {
@@ -45,4 +45,3 @@ function Plugin(data: { results: object; settings: Settings }) {
 }
 
 export default render(Plugin);
-
