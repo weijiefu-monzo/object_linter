@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Pixelify+Sans:wght@400..700&display=swap');
 .home {
   height: 100%;
   display: flex;
@@ -25,10 +24,10 @@
   overflow: hidden;
 }
 .coverContainer {
-padding: 8px;
-background-color: var(--grey-200);
-box-shadow: var(--elevation--100);
-border-radius: 48px;
+  padding: 8px;
+  background-color: var(--grey-200);
+  box-shadow: var(--elevation--100);
+  border-radius: 48px;
 }
 .cover img {
   position: absolute;
@@ -75,36 +74,37 @@ border-radius: 48px;
 }
 
 @keyframes glitch {
-  0%, 100% { 
-    transform: translate(-50%, -50%); 
+  0%,
+  100% {
+    transform: translate(-50%, -50%);
     filter: hue-rotate(0deg);
   }
-  20% { 
-    transform: translate(-48%, -52%); 
+  20% {
+    transform: translate(-48%, -52%);
     filter: hue-rotate(90deg);
   }
-  40% { 
-    transform: translate(-52%, -48%); 
+  40% {
+    transform: translate(-52%, -48%);
     filter: hue-rotate(180deg);
   }
-  60% { 
-    transform: translate(-48%, -52%); 
+  60% {
+    transform: translate(-48%, -52%);
     filter: hue-rotate(270deg);
   }
-  80% { 
-    transform: translate(-52%, -48%); 
+  80% {
+    transform: translate(-52%, -48%);
     filter: hue-rotate(360deg);
   }
 }
 
-.info{
+.info {
   display: flex;
   flex-direction: column;
   gap: 8px;
   padding: 16px;
 }
 
-.infoImage{
+.infoImage {
   width: 50%;
   height: auto;
   margin-bottom: 16px;
