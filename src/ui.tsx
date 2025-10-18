@@ -2,9 +2,9 @@ import './react-bridge'; // Must be first to set up React bridge
 import { render } from '@create-figma-plugin/ui';
 import { emit, on } from '@create-figma-plugin/utilities';
 import { h, RefObject } from 'preact';
-import '@object-ui/components/styles/primitive.css';
-import '@object-ui/components/styles/semantic.css';
-import '@object-ui/components/styles/index.css';
+import '@object-ui/dist/components/styles/primitive.css';
+import '@object-ui/dist/components/styles/semantic.css';
+import '@object-ui/dist/components/styles/index.css';
 import { Home } from './pages/Home';
 import { Settings } from './types';
 import { useEffect, useState } from 'preact/hooks';
