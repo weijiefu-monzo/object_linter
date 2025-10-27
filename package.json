@@ -29,7 +29,14 @@
     "editorType": [
       "figma"
     ],
-    "id": "react-editor",
+    "id": "1564678595672804502",
+    "networkAccess": {
+      "allowedDomains": [
+        "https://fonts.googleapis.com",
+        "https://fonts.gstatic.com"
+      ]
+    },
+    "documentAccess": "dynamic-page",
     "name": "Object Linter",
     "main": "src/main.ts",
     "ui": "src/ui.tsx"
